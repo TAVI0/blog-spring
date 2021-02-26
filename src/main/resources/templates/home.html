@@ -7,12 +7,13 @@
 </head>
 <body>
 
-<a  class="btn btn-info" th:href="@{/post/newPosts/}">Nuevo Post</a>
+<a  class="btn btn-success" th:href="@{/post/newPosts/}">Nuevo Post</a>
 
 <table class="table">
     <thead>
     <th>Titulo</th>
 
+    <th></th>
     <th></th>
     <th></th>
     </thead>
@@ -21,9 +22,11 @@
 
         <td th:text="${post.title}">
         <td><a class="btn btn-info" th:href="@{/patch/posts/{id}(id=${post.id})}">Editar</a></td>
-        <td><a th:method="delete" class="btn btn-danger" th:href="@{/delete/post/{id}(id=${post.id})}">Eliminar</a></td>
+        <td><a class="btn btn-primary" th:href="@{/get/post/{id}(id=${post.id})}">Detalles</a></td>
+        <td><a class="btn btn-danger" th:href="@{/delete/post/{id}(id=${post.id})}">Eliminar</a></td>
     </tr>
     </tbody>
+
 </table>
 </body>
 </html>

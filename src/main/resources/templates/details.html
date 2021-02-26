@@ -8,7 +8,7 @@
 <body>
 
 <label >ID:</label>
-<lebel th:field="${post.id}" name="id"></lebel>
+<lebel th:text="${post.id}" name="id"></lebel>
 
 <div class="form-group">
 
@@ -28,6 +28,9 @@
 
     <label>URL imagen:</label>
     <label th:text="${post.imageURL}" name="imageURL"></label>
+    <br>
+    <img th:src="${post.imageURL}" width="500" height="600">
+
 
 </div>
 
@@ -44,5 +47,8 @@
     <label th:text="${post.date}" name="date"></label>
 
 </div>
+
+<a class="btn btn-secondary" th:href="@{/get/posts}">ATRAS</a>
+
 </body>
 </html>
