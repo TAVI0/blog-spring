@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    <link href="../static/css/bootstrapp-css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+
+<label >ID:</label>
+<lebel th:text="${post.id}" name="id"></lebel>
+
+<div class="form-group">
+
+    <label >Titulo:</label>
+    <label th:text="${post.title}" name="title"></label>
+
+</div>
+
+<div class="form-group">
+
+    <label>Contenido:</label>
+    <label th:text="${post.content}" name="content"></label>
+
+</div>
+
+<div class="form-group">
+
+    <label>URL imagen:</label>
+    <label th:text="${post.imageURL}" name="imageURL"></label>
+    <br>
+    <img th:src="${post.imageURL}" width="500" height="600">
+
+
+</div>
+
+<div class="form-group">
+
+    <label>Categoria:</label>
+    <label th:text="${post.category}" name="category"></label>
+
+</div>
+
+<div class="form-group">
+
+    <label>Fecha:</label>
+    <label th:text="${post.date}" name="date"></label>
+
+</div>
+
+<a class="btn btn-secondary" th:href="@{/get/posts}">ATRAS</a>
+
+</body>
+</html>

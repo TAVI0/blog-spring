@@ -15,8 +15,8 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String title;
-    String contents;
+    String content;
     String imageURL;
     String category;
-    Date date;
+    String date;
 }
