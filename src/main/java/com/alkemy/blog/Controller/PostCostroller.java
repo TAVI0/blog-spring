@@ -20,12 +20,21 @@ public class PostCostroller {
         this.postService = postService;
     }
 
-    @GetMapping("get/posts")
-    public String listPost(Model model){
-        model.addAttribute("list",postService.findOrderByDateDesc());
+    @GetMapping("/")
+    public String index(Model model) {
+        model.addAttribute("list",postService.findAll());
         return "home";
     }
-    @GetMapping("get/post/{id}")
+
+
+    @GetMapping("/get/posts")
+    public String listPost(Model model){
+        //model.addAttribute("list",postService.findOrderByDateDesc());
+        model.addAttribute("list",postService.findAll());
+        return "home";
+    }
+
+    @GetMapping("/get/post/{id}")
     public String getPost(@PathVariable("id") int id, Model model){
 
         Optional<Post> possiblePost = postService.findById(id);
@@ -38,32 +47,37 @@ public class PostCostroller {
         }
     }
 
-    @GetMapping("post/posts/{id}")
+    @GetMapping("/post/newPosts/")
     public String showSave(Model model){
         model.addAttribute("post",new Post());
         return "formCreation";
     }
 
-    @PostMapping("post/posts")
-    public String save(Post post){
+    @PostMapping("/post/posts")
+    public String save(Post post, Model model){
         postService.save(post);
+        model.addAttribute("list",postService.findAll());
         return "home";
     }
 
-    @GetMapping("patch/posts/{id}")
+    @GetMapping("/patch/posts/{id}")
     public String showEdit(@PathVariable("id") int id, Model model){
         model.addAttribute("post",postService.findById(id));
         return "formPatch";
     }
-    @PatchMapping("patch/post")
-    public String edit(Post post){
+    //@PatchMapping("/patch/post")
+    @PostMapping("/patch/post")
+    public String edit(Post post, Model model){
         postService.save(post);
+        model.addAttribute("list",postService.findAll());
         return "home";
     }
 
-    @DeleteMapping("delete/post/{id}")
+    //@DeleteMapping("/delete/post/{id}")
+    @GetMapping("/delete/post/{id}")
     public String delete(@PathVariable("id") int id, Model model){
         postService.deleteById(id);
+        model.addAttribute("list",postService.findAll());
         return "home";
     }
 

@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PostRepository extends CrudRepository<Post, Integer> {
-    List<Post> findOrderByDateDesc();
+    List<Post> findAll();
+    //List<Post> findOrderByDateDesc();
     Optional<Post> findById(int id);
     Post save(Post post);
     void deleteById(int id);

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    <link href="../static/css/bootstrapp-css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+
+<a  class="btn btn-info" th:href="@{/post/newPosts/}">Nuevo Post</a>
+
+<table class="table">
+    <thead>
+    <th>Titulo</th>
+
+    <th></th>
+    <th></th>
+    </thead>
+    <tbody>
+    <tr th:each="post : ${list}">
+
+        <td th:text="${post.title}">
+        <td><a class="btn btn-info" th:href="@{/patch/posts/{id}(id=${post.id})}">Editar</a></td>
+        <td><a th:method="delete" class="btn btn-danger" th:href="@{/delete/post/{id}(id=${post.id})}">Eliminar</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
